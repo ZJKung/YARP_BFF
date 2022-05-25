@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using Microsoft.AspNetCore.Mvc;
 using BFF.Models;
+using Microsoft.AspNetCore.Mvc;
 
 namespace BFF.Controllers;
 
@@ -20,6 +20,7 @@ public class HomeController : Controller
 
     public IActionResult Privacy()
     {
+        _logger.LogInformation("{s}", HttpContext!.User!.Identity!.IsAuthenticated);
         return View();
     }
 
